@@ -7,11 +7,6 @@ import java.util.TimerTask;
 import javax.swing.JFrame;
 import sierpinski.Posn;
 
-/**
- * A non-interactive visual view built using JFrame that plays the animation at the specified tick
- * rate when asked to render. This view supports models with shapeTypes of "ellipse" and
- * "rectangle"
- */
 public class AnimatedPointPlotterFrame extends JFrame {
 
   private Timer frameTimer;
@@ -54,17 +49,18 @@ public class AnimatedPointPlotterFrame extends JFrame {
    */
   private void incrementAnimationPanel() {
     if (this.pointIndex < this.allPoints.size()) {
-      if (this.pointIndex < 100) {
+      for (int numAdded = 0; numAdded < numPointsToAdd(this.pointIndex, this.allPoints.size()); numAdded ++) {
         this.aPanel.addPoint(this.allPoints.get(this.pointIndex));
         this.pointIndex++;
-      } else {
-        for (int numAdded = 0; numAdded < 5; numAdded ++) {
-          this.aPanel.addPoint(this.allPoints.get(this.pointIndex));
-          this.pointIndex++;
-        }
       }
     }
     this.aPanel.repaint();
+  }
+
+  private static int numPointsToAdd(int numPointsSoFar, int maxTotal) {
+    int maxToAdd = maxTotal - numPointsSoFar;
+    // Every factor of 10 points processed, multiply speed by 5. +1 to ensure no issues with 0 pts
+    return Math.min((int) (Math.pow(5.0, (int) Math.log10(numPointsSoFar) - 1) + 1), maxToAdd);
   }
 
   /**

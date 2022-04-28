@@ -8,7 +8,7 @@ import sierpinski.Posn;
 
 public class IncrementalPointPlotPanel extends JPanel {
 
-  private static final int POINT_RADIUS = 2;
+  private static final int POINT_RADIUS = 1;
   private static final Color BACKGROUND_COLOR = Color.WHITE;
   private static final Color POINT_COLOR = Color.BLACK;
 
@@ -42,7 +42,7 @@ public class IncrementalPointPlotPanel extends JPanel {
     for (Posn origin : positions) {
       graphics.setColor(POINT_COLOR);
       int size = 2 * POINT_RADIUS;
-      graphics.fillOval(origin.x - POINT_RADIUS, origin.y - POINT_RADIUS, size, size);
+      graphics.fillOval((int) origin.x - POINT_RADIUS, (int) origin.y - POINT_RADIUS, size, size);
     }
   }
 }

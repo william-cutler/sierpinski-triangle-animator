@@ -2,8 +2,8 @@ package sierpinski;
 
 /** A structure of integer, 2D Cartesian coordinates */
 public class Posn {
-  public int x;
-  public int y;
+  public double x;
+  public double y;
 
   /**
    * Constructs this from the given x and y coordinate.
@@ -11,7 +11,7 @@ public class Posn {
    * @param x x-coordinate
    * @param y y-coordinate
    */
-  public Posn(int x, int y) {
+  public Posn(double x, double y) {
     this.x = x;
     this.y = y;
   }

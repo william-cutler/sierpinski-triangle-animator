@@ -8,9 +8,9 @@ import sierpinski.rendering.AnimatedPointPlotterFrame;
 
 public class Sierpinski {
   static String pointString = "50,50 60,50 70,50 80,50 90,50 100,50 110,50 120,50";
-  static int width = 300;
-  static int height = 300;
-  static int numPoints = 5000;
+  static int width = 500;
+  static int height = 500;
+  static int numPoints = 10000;
   static int tickRate = 60;
   static int numSides = 3;
 
